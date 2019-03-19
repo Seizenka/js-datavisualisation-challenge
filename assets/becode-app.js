@@ -147,7 +147,7 @@ function graphique3(){
             dataTab3.push({"année":data[i][0], "taux de criminalité":data[i][1]});
         }
         //création du graphique 3
-        let chart3 = new dimple.chart(svg3.dataTab3);
+        let chart3 = new dimple.chart(svg3,dataTab3);
         chart3.addCategoryAxis("x", "année");
         //Définition de l'axe des X
         chart3.addMeasureAxis("y", "taux de criminalité");
@@ -157,8 +157,8 @@ function graphique3(){
         chart3.draw();
         //On le dessine
 
-        timeOut(function(){
-            chart3.svg3.selectAll("*").remove();
+        setTimeout(function(){
+            chart3.svg.selectAll("*").remove();
             graphique3();
         },1000); //relance la fonction après une seconde
     })
